@@ -51,4 +51,7 @@ function openMouth() {
       face.setAttribute('src', 'assets/images/smiling.png');
     }
   }, 100);
+  
+  // function that speaks in current voice the name of the voice that it is
+
 }
