@@ -25,6 +25,7 @@ function populateVoices() {
 function bindListeners() {
   const talkBtn = document.querySelector('#explore > button');
   const textarea = document.querySelector('#explore > textarea');
+  
 
   talkBtn.addEventListener('click', () => {
     let textToSpeak = textarea.value;
@@ -51,7 +52,6 @@ function openMouth() {
       face.setAttribute('src', 'assets/images/smiling.png');
     }
   }, 100);
-  
-  // function that speaks in current voice the name of the voice that it is
+
 
 }

@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <script src="https://unpkg.com/launchdarkly-js-client-sdk@2"></script>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,6 +33,24 @@
       <button>Press to Talk</button>
     </section>
   </main>
+  <script>
+    var user = { 
+      key: Math.random() * 1000,
+    };
+    
+    var ldclient = LDClient.initialize('61a2d83a7386bf104964db5c', user);
+  
+    function render() {
+      var shouldShow = ldclient.variation('text-shadow', false);
+      var label = (shouldShow ? 'Showing' : 'Not showing') + ' your feature to ' + user.key;
+      if(shouldShow) {
+        document.body.classList.add("text");
+      } 
+    }
+  
+    ldclient.on('ready', render);
+    ldclient.on('change', render);
+  </script>
 </body>
 
 </html>
